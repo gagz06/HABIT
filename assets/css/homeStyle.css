@@ -1,0 +1,11 @@
+#wrapper {
+    min-height: 100%; /* Establishes a minimum height for the wrapper */
+    display: flex;
+    flex-direction: column; /* Stacks the header, content, and footer vertically */
+}
+
+#content {
+    flex: 1; /* Let the content take up remaining vertical space */
+    padding: 20px;
+    
+}

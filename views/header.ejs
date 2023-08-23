@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/headerStyle.css">
+<div id="header">
+    <div id="sidebar">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="./calendar.html">Calendar</a>
+            <a href="/loginSignup"> Login</a>
+        </div>
+        <div id="main">
+            <span onclick="openNav()">&#9776; Menu</span>
+        </div>
+    </div>
+    <div id="appTitle">
+        <strong>
+           <a href="/">  <%= title %></a>
+        </strong>
+    </div>
+    <div id="rightSidebar">
+        <div id="rightMySidenav" class="rightSidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNavRight()">&times;</a>
+            <a href="/calendar.html">Calendar</a>
+            <a href="/loginSignup"> Login</a>
+        </div>
+        <div id="main">
+            <span onclick="openNavRight()">Options &#9776;</span>
+        </div>
+    </div>
+</div>
+<script src="js/script.js"></script>

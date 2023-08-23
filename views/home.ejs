@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/homeStyle.css">
+<body>
+    <div id="wrapper">
+        <%- include('header'); %>
+        <div id="content">
+            <!-- Main content here -->
+            <div id="addHabit">
+                <input type="text" id="habitName" placeholder="Enter New Habit Name">
+                <input type="submit">
+            </div>
+            <div id="habitListDiv">
+                <ul id="habitList">
+                    <li>
+                        <p><label>
+                            Gym
+                        </label>
+                        <button id="btnDeleteHabit">X</button>
+                    </p>
+                    </li>
+                    <li>
+                        <p>
+                            <label>Study</label>
+                            <button id="btnDeleteHabit">X</button>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <label>Basketball</label>
+                            <button id="btnDeleteHabit">X</button>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <%- include('footer'); %>
+    </div>
+</body>

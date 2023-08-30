@@ -9,88 +9,104 @@
             <a href="javascript:void(0)" onclick="showSignup()">Sign Up</a>
         </div>
         <div id="content">
-            <div id="loginDiv">
-                <table>
-                    <tr>
-                        <td>
+            <form action="/login" method="post">
+                <div id="loginDiv">
+                    <table>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label>User Name :</label>
+                                </p>
+                            </td>
+                            <td>
                             <p>
-                                <label>Name :</label>
+                                <input type="text" placeholder="User name" required> 
                             </p>
-                        </td>
-                        <td>
-                        <p>
-                            <input type="text" placeholder="Name or Email">
-                        </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <label>Password :</label>
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="password" placeholder="Password">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                           <p>
-                            <input type="submit" id="btnLogin" value="Log In">
-                           </p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div id="signupDiv">
-                <table>
-                    <tr>
-                        <td>
-                            <p>
-                                <label>User Name :</label>
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="text" placeholder="Name or Email">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <label>Password :</label>
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="password" placeholder="Password">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <label>Confirm Password :</label>
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="password" placeholder="Confirm Password">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                           <p>
-                            <input type="submit" id="btnSignup" value="Sign Up">
-                           </p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label>Passwowrd  :</label>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="password" placeholder="Password" id="password" required>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <p>
+                                <input type="submit" id="btnLogin" value="Login" required>
+                               </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <form action="/signup" method="post">
+                <div id="signupDiv">
+                    <table>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label> Name :</label>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="text" placeholder="Name">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label> Email :</label>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="email" placeholder="Email" required>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label>Password :</label>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="password" placeholder="Password" required>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <label>Confirm Password :</label>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="password" placeholder="Confirm Password" required>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <p>
+                                <input type="submit" id="btnSignup" value="Sign Up" >
+                               </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
         </div>
         <%- include('footer'); %>
     </div>

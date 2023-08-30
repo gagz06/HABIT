@@ -9,4 +9,11 @@ router.get('/',homeController.home);
 const loginOrSignupController = require('../controllers/loginOrSignUp');
 router.get('/loginSignup',loginOrSignupController.loginOrSignup);
 
+const loadCalendar = require('../controllers/calendar');
+router.get('/calendar',loadCalendar.loadCalendar);
+
+const addHabitController = require('../controllers/addHabit');
+router.get('/addHabit',addHabitController.addNewHabit);
+router.post('/createnewhabit',addHabitController.create);
+
 module.exports = router;

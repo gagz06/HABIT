@@ -1,7 +1,10 @@
-module.exports.home =  function(req,res){
+const habitSchema = require('../models/habitSchema');
+module.exports.home = async function(req,res){
     try{
+        let allHabitList = await habitSchema.find({});
         return res.render("home",{
-            title: "Habit Tracker System | HTS"
+            title: "Habit Tracker System | HTS",
+            allHabitList: allHabitList
         });
     }
     catch (err) {

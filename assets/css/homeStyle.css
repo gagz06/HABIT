@@ -9,3 +9,42 @@
     padding: 20px;
     
 }
+#habitListDiv{
+    align-content: center;
+}
+#habitList{
+    list-style: none;
+}
+#liContainerDiv{
+    display: flex;
+    width: 30%;
+    border:solid;
+    padding: 10px;
+}
+#liContainerDiv label{
+    flex: 1;
+    text-align: center;
+    font-size: x-large;
+    padding: 10px;
+}
+#liContainerDiv form{
+    flex: 0.5;
+    font-size: large;
+}
+#liContainerDiv form input{
+    cursor: pointer;
+        border: 1px solid #3498db;
+        background-color: transparent;
+       
+        color: #3498db;
+        
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+#redirectIcon a{
+    font-size: xx-large;
+    padding: 10px;
+    color: red;
+    border: solid;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}

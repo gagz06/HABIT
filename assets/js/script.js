@@ -1,3 +1,5 @@
+
+
 function openNav(){
   if(document.getElementById("rightMySidenav").style.width!=0){
     closeNavRight();

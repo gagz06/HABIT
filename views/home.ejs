@@ -14,19 +14,7 @@
                         <div id="liContainerDiv">
                             <label><a href="calendar"><%=habit.habitName%></a></label>
                             <label><%=habit.time%></a></label>
-                            <form action="/statusUpdate">
-                                <label>Track habit for </label>
-                                <label id="dateTracker"></label>
-                                <br>
-                                <span>Status:</span>
-                                <select name="HabitStatus" id="habitStatus">
-                                  <option value="done">Done</option>
-                                  <option value="notDone">Not Done</option>
-                                  <option value="none" selected="true">None</option>
-                                </select>
-                                <br><br>
-                                <input type="submit" value="Update Status">
-                              </form>
+                            <a href="status/<%=habit.id%>">Update Status</a>
                         </div>
                     </p>
                     </li>
@@ -40,3 +28,4 @@
         <%- include('footer'); %>
     </div>
 </body>
+<script src="js/script.js"></script>

@@ -16,4 +16,8 @@ const addHabitController = require('../controllers/addHabit');
 router.get('/addHabit',addHabitController.addNewHabit);
 router.post('/createnewhabit',addHabitController.create);
 
+const habitStatusUpdate = require('../controllers/habitStatusUpdate');
+router.get('/status/:id',habitStatusUpdate.updateStatusPageLoad);
+router.post('/habitStatusUpdate/:id',habitStatusUpdate.updateStatus);
+
 module.exports = router;

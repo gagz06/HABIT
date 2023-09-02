@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const statusEntrySchema = new mongoose.Schema({
-  date: Date,
+  date: String,
   status: {
     type: String,
     enum: ['Done', 'Not Done', 'None'],

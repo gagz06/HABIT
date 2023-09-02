@@ -33,3 +33,5 @@ function closeNavRight() {
     document.getElementById("footer").style.marginRight = "0";
     document.body.style.backgroundColor = "white";
   }
+  
+

@@ -1,7 +1,7 @@
 
     // Assuming `habitData` is an array of objects with date and status
     const habitData = [
-        { date: 'Fri Aug 25 2023', status: 'Done' },
+        { date: 'Sat Sep 02 2023', status: 'Done' },
         { date: 'Thu Aug 24 2023', status: 'Not done' },
         { date: 'Wed Aug 23 2023', status: 'Done' },
         { date: 'Tue Aug 22 2023', status: 'None' },

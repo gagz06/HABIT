@@ -1,0 +1,36 @@
+
+<body>
+    <div id="loginWrapper">
+        <%- include('header'); %>
+            <div id="content">
+                <form action="/habitStatusUpdate/<%=habit.id%>" id="updateHabitStatusForm" method="POST">
+
+                    <p>
+                        <label>Habit : <%=habit.habitName%></label>
+                    </p>
+                
+                    <p>
+                        <label>Time : <%=habit.time%></label>
+                    </p>
+                    <p>
+                        <input type="date" id="inputDate" name="date">
+                    </p>
+                    <p>
+                        <span>Status:</span>
+                        <select name="HabitStatus" id="habitStatus">
+                            <option value="Done">Done</option>
+                            <option value="Not Done">Not Done</option>
+                            <option value="None" selected="true">None</option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type="submit" id="btnLogin" value="Update Status">
+                    </p>
+                
+                </form>
+                
+            </div>
+            <%- include('footer'); %>
+    </div>
+</body>
+<script src="../js/status.js"></script>

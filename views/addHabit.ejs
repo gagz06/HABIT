@@ -4,9 +4,9 @@
     <div id="loginWrapper">
         <%- include('header'); %>
             <div id="content">
-                <form action="/createnewhabit" method="POST">
-                <table>
-                   
+                <form action="/createnewhabit" id="addNewHabitForm" method="POST">
+                    <table>
+
                         <tr>
                             <td>
                                 <p>
@@ -14,9 +14,9 @@
                                 </p>
                             </td>
                             <td>
-                            <p>
-                                <input type="text" name="habit" placeholder="Add new Habit"> 
-                            </p>
+                                <p>
+                                    <input type="text" name="habit" placeholder="Add new Habit">
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -33,36 +33,16 @@
                         </tr>
                         <tr>
                             <td>
-                               <p>
-                                <input type="submit" id="btnLogin" value="Add New Task">
-                               </p>
+                                <p>
+                                    <input type="submit" id="btnLogin" value="Add New Task">
+                                </p>
                             </td>
                         </tr>
                     </table>
-                    </form>
-                <!-- <form action="/createnewhabit" id="newHabitAddForm" method="POST">
-
-                    <p>
-                        <label>Habit :</label>
-                    </p>
-
-                    <p>
-                        <input type="text" name="habit" placeholder="Add new Habit">
-                    </p>
-                    <p>
-                        <label>Time :</label>
-                    </p>
-                    <p>
-                        <input type="time" id="inputDateTime" name="time" value="00:00">
-                    </p>
-                    <p>
-                        <input type="submit" id="btnLogin" value="Add New Task">
-                    </p>
-
-                </form> -->
-
+                </form>
+               
             </div>
             <%- include('footer'); %>
     </div>
 </body>
-<script src="/js/addHabit.js"></script>
+<script src="js/addHabit.js"></script>

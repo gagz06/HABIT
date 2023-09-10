@@ -1,11 +1,20 @@
 const habitSchema = require('../models/habitSchema');
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
 
+today = yyyy + '-' + mm + '-' + dd;
 module.exports.updateStatusPageLoad = async function(req,res){
     try{
         let Habit = await habitSchema.findById(req.params.id);
+        if(req.params.date){
+          today=req.params.date;
+        }
         return res.render("status",{
             title: "Habit Tracker System | HTS",
-            habit: Habit
+            habit: Habit,
+            todayDate: today
         });
     }
     catch(err){
@@ -22,16 +31,17 @@ module.exports.updateStatus= async function(req,res) {
     const newDate = req.body.date;
     const dateExists = Habit.statusEntries.some((entry) => entry.date === newDate);
 
+    const newTime= Habit.time;
+    if(newTime!==req.body.time){
+      Habit.time=req.body.time;
+    }
 
     if(dateExists){
         
     const existingEntry = Habit.statusEntries.find((entry) => entry.date === newDate);
-    existingEntry.status = req.body.HabitStatus;
-    await  Habit.save().then(()=>{
-        console.log('Status updated');
-      }).catch(()=>{
-        console.log(err);
-      });
+    if(existingEntry.status !== req.body.HabitStatus){
+      existingEntry.status = req.body.HabitStatus;
+    }
     }
     else{
         const newStatusEntry = {
@@ -39,12 +49,12 @@ module.exports.updateStatus= async function(req,res) {
             status: req.body.HabitStatus
           };
           Habit.statusEntries.push(newStatusEntry);
-          Habit.save().then(()=>{
-            console.log('New Status added');
-          }).catch(()=>{
-            console.log(err);
-          });
     }
+    Habit.save().then(()=>{
+      console.log('Status updated');
+    }).catch((err)=>{
+      console.log(err);
+    });
       return res.redirect('back');
    } catch (error) {
     console.log(error);

@@ -10,10 +10,11 @@
                     </p>
                 
                     <p>
-                        <label>Time : <%=habit.time%></label>
+                        <label>Time : </label>
+                        <input type="time" id="habitTime" name="time" value="<%=habit.time%>">
                     </p>
                     <p>
-                        <input type="date" id="inputDate" name="date">
+                        <input type="date" id="inputDate" name="date" value="<%=todayDate%>">
                     </p>
                     <p>
                         <span>Status:</span>
@@ -33,4 +34,4 @@
             <%- include('footer'); %>
     </div>
 </body>
-<script src="../js/status.js"></script>
+<script src="../../../js/script.js"></script>

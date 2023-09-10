@@ -1,19 +1,45 @@
+<%
+// Helper function to find a status entry by date within a habit
+function findStatusEntryByDate(habit, date) {
+    return habit.statusEntries.find(entry => entry.date === date);
+}
+%>
+
 <link rel="stylesheet" href="/css/calendarStyle.css">
 <body>
     <%- include('header'); %>
     <h1>Habit Calendar</h1>
-    <h2>Gym</h2>
-    <div class="calendar">
-        <!-- Calendar cells will be dynamically generated here -->
+    
+    <div id="habits-div">
+
+        <% for (let habit of habits) { %>
+            <div class="user-habits" style="display: flex;">
+                <%= habit.habitName %>
+                <% for (let j = 0; j < 7; j++) { %>
+                    <div class="calendar-entry" style="border: solid;">
+                        <% const currentDate = new Date(); currentDate.setDate(currentDate.getDate() - j); %>
+                        <% const formattedDate = currentDate.toISOString().split('T')[0]; %>
+                        <% const formattedDay = currentDate.toLocaleDateString('en-US', { weekday: 'long' }); %>
+                        <p><a href="statusUpdate/<%=habit.id%>/<%= formattedDate %>"><%= formattedDate %></a></p>
+                        
+                        <p><%= formattedDay %></p>
+                        
+                        
+                        <% const statusEntry = findStatusEntryByDate(habit, formattedDate); %>
+                        <% if (statusEntry) { %>
+                            <!-- <p>Status: <%= statusEntry.status %></p> -->
+                            <% if(statusEntry.status === 'Done') { %>   
+                               <p> <span class="tick">&#10004;</span></p>
+                            <% } else if (statusEntry.status === 'Not Done') { %>
+                                <p><span class="cross">&#10008;</span></p>
+                            <% } %>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
     </div>
-    <h2>Book</h2>
-    <div class="calendar">
-        <!-- Calendar cells will be dynamically generated here -->
-    </div>
-    <h2>Running</h2>
-    <div class="calendar">
-        <!-- Calendar cells will be dynamically generated here -->
-    </div>
-    <%- include('footer'); %>
+    
+    <%- include('footer'); %>   
 </body>
-<script src="/js/calendarScript.js"></script>
+

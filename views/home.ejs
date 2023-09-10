@@ -14,6 +14,10 @@
                         <div id="liContainerDiv">
                             <label><a href="calendar"><%=habit.habitName%></a></label>
                             <label><%=habit.time%></a></label>
+                            <label>Best Streak: <%= bestStreaks[allHabitList.indexOf(habit)] %> 
+                            /  <%= totalDays[allHabitList.indexOf(habit)]%> days </label>
+                            
+                            <a href="deleteHabit/<%=habit.id%>">Delete</a>
                             <a href="status/<%=habit.id%>">Update Status</a>
                         </div>
                     </p>

@@ -1,10 +1,15 @@
 const habitSchema = require("../models/habitSchema");
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, "0");
+var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+var yyyy = today.getFullYear();
 
+today = yyyy + "-" + mm + "-" + dd;
 module.exports.addNewHabit = function (req, res) {
   try {
-    let Habit = null;
     return res.render("addHabit", {
       title: "Habit Tracker System | HTS",
+      todayDate: today
     });
   } catch (err) {
     console.log(err);
@@ -19,12 +24,7 @@ module.exports.create = async function (req, res) {
       time: req.body.time,
     });
     console.log(newHabit._id);
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = today.getFullYear();
-
-    today = yyyy + "-" + mm + "-" + dd;
+   
     const newStatusEntry = {
       date: today,
     };
@@ -38,7 +38,7 @@ module.exports.create = async function (req, res) {
       .catch(function (err) {
         console.log(err);
       });
-    return res.redirect("/");
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
     return;

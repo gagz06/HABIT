@@ -13,7 +13,7 @@ const habitSchema = new mongoose.Schema({
   habitName: String,
   userId: String, 
   time: String,
-  statusEntries: [statusEntrySchema],
+  statusEntries: [statusEntrySchema]
 });
 
 const Habit = mongoose.model('Habit', habitSchema);

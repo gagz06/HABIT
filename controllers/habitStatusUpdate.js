@@ -8,13 +8,19 @@ today = yyyy + '-' + mm + '-' + dd;
 module.exports.updateStatusPageLoad = async function(req,res){
     try{
         let Habit = await habitSchema.findById(req.params.id);
+        let statusForDate;
         if(req.params.date){
           today=req.params.date;
+          const statusEntry = Habit.statusEntries.find(entry => entry.date === req.params.date);
+          if (statusEntry) {
+            statusForDate = statusEntry.status;
+          }
         }
         return res.render("status",{
             title: "Habit Tracker System | HTS",
             habit: Habit,
-            todayDate: today
+            todayDate: today,
+            statusForDate: statusForDate
         });
     }
     catch(err){

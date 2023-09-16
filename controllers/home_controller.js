@@ -50,7 +50,7 @@ module.exports.deleteHabit = async function(req,res){
     try {
         let habit = await habitSchema.findById(req.params.id);
         await habitSchema.deleteOne(habit._id).then(()=>{
-            console.log(habit.habitName+'deleted successfully');
+            console.log(habit.habitName+' deleted successfully');
             return res.redirect('back');
         }).catch((err)=>{
             console.log(err);    

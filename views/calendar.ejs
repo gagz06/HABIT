@@ -12,32 +12,42 @@ function findStatusEntryByDate(habit, date) {
     
     <div id="habits-div">
 
-        <% for (let habit of habits) { %>
-            <div class="user-habits" style="display: flex;">
-                <%= habit.habitName %>
-                <% for (let j = 0; j < 7; j++) { %>
-                    <div class="calendar-entry" style="border: solid;">
-                        <% const currentDate = new Date(); currentDate.setDate(currentDate.getDate() - j); %>
-                        <% const formattedDate = currentDate.toISOString().split('T')[0]; %>
-                        <% const formattedDay = currentDate.toLocaleDateString('en-US', { weekday: 'long' }); %>
-                        <p><a href="statusUpdate/<%=habit.id%>/<%= formattedDate %>"><%= formattedDate %></a></p>
-                        
-                        <p><%= formattedDay %></p>
-                        
-                        
-                        <% const statusEntry = findStatusEntryByDate(habit, formattedDate); %>
-                        <% if (statusEntry) { %>
-                            <!-- <p>Status: <%= statusEntry.status %></p> -->
-                            <% if(statusEntry.status === 'Done') { %>   
-                               <p> <span class="tick">&#10004;</span></p>
-                            <% } else if (statusEntry.status === 'Not Done') { %>
-                                <p><span class="cross">&#10008;</span></p>
-                            <% } %>
-                        <% } %>
-                    </div>
-                <% } %>
-            </div>
-        <% } %>
+        <%if(habits.length>0){%>
+            <% for (let habit of habits) { %>
+                <div class="user-habits">
+                    <label><%= habit.habitName %></label>
+                    <% for (let j = 0; j < 7; j++) { %>
+                        <div class="calendar-entry" >
+                            <% const currentDate = new Date(); currentDate.setDate(currentDate.getDate() - j); %>
+                            <% const formattedDate = currentDate.toISOString().split('T')[0]; %>
+                            <% const formattedDay = currentDate.toLocaleDateString('en-US', { weekday: 'long' }); %>
+                            <p><a href="statusUpdate/<%=habit.id%>/<%= formattedDate %>"><%= formattedDate %></a></p>
+                            
+                            <p><%= formattedDay %></p>
+                            
+                            
+                            <% const statusEntry = findStatusEntryByDate(habit, formattedDate); %>
+                            <% if (statusEntry) { %>
+                                <% if(statusEntry.status === 'Done') { %>   
+                                   <p> <span class="tick">&#10004;</span></p>
+                                <% } else if (statusEntry.status === 'Not Done') { %>
+                                    <p><span class="cross">&#10008;</span></p>
+                                    <% } else if (statusEntry.status === 'None') { %>
+                                        <p><span class="blank">&#63;</span></p>
+                                    <% } %>
+                            
+                            <%}else {%>
+                                <p><span class="blank">&#63;</span></p>
+                                <%}%>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+            <%}else{%>
+                <div class="calendar-entry" >
+                    <label id="emptyListMessage">No habits added</label>
+                </div>
+                <%}%>
     </div>
     
     <%- include('footer'); %>   

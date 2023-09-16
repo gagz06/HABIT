@@ -1,7 +1,27 @@
-#inputDateTime{
+#content{
     width: 100%;
-    font-size: large;
+    height: 100%;
+    background-color: blueviolet;
+    padding-top: 50px;
 }
-label{
+#addNewHabitForm{
+    background-color: blueviolet;
+    padding-left: 35%;
+}
+#addNewHabitForm label{
+    font-size: x-large;
+    color: white;
+}
+#addNewHabitForm input{
+ width: 200px;
+ font-size: large;
+}
+#habitStatus{
+    width: 200px;
+    font-size: medium;
+}
+
+#btnLogin{
     font-size: large;
+    background-color: greenyellow;
 }

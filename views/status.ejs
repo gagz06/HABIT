@@ -1,37 +1,63 @@
-
+<link rel="stylesheet" href="/css/updateStatus.css">
 <body>
     <div id="loginWrapper">
         <%- include('header'); %>
-            <div id="content">
-                <form action="/habitStatusUpdate/<%=habit.id%>" id="updateHabitStatusForm" method="POST">
-
-                    <p>
-                        <label>Habit : <%=habit.habitName%></label>
-                    </p>
-                
-                    <p>
-                        <label>Time : </label>
-                        <input type="time" id="habitTime" name="time" value="<%=habit.time%>">
-                    </p>
-                    <p>
-                        <input type="date" id="inputDate" name="date" value="<%=todayDate%>">
-                    </p>
-                    <p>
-                        <span>Status:</span>
-                        <select name="HabitStatus" id="habitStatus">
-                            <option value="Done">Done</option>
-                            <option value="Not Done">Not Done</option>
-                            <option value="None" selected="true">None</option>
-                        </select>
-                    </p>
-                    <p>
-                        <input type="submit" id="btnLogin" value="Update Status">
-                    </p>
-                
-                </form>
-                
-            </div>
-            <%- include('footer'); %>
+        <div id="content">
+            <form action="/habitStatusUpdate/<%=habit.id%>" id="updateHabitStatusForm" method="POST" onsubmit="showAlert()">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="habitName">Habit:</label>
+                        </td>
+                        <td>
+                            <label><%=habit.habitName%></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="habitTime">Time:</label>
+                        </td>
+                        <td>
+                            <input type="time" id="habitTime" name="time" value="<%=habit.time%>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="inputDate">Date:</label>
+                        </td>
+                        <td>
+                            <input type="date" id="inputDate" name="date" value="<%=todayDate%>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="habitStatus">Status:</label>
+                        </td>
+                        <td>
+                            <select name="HabitStatus" id="habitStatus">
+                                <option value="Done" <%= statusForDate === 'Done' ? 'selected' : '' %>>Done</option>
+                                <option value="Not Done" <%= statusForDate === 'Not Done' ? 'selected' : '' %>>Not Done</option>
+                                <option value="None" <%= !statusForDate ? 'selected' : '' %>>None</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" id="btnUpdateStatus" value="Update Status">
+                            <a href="../../calendar" id="calendarLink">Back</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <%- include('footer'); %>
     </div>
 </body>
+
 <script src="../../../js/script.js"></script>
+<script>
+    function showAlert() {
+        alert("Status updated successfully!");
+    }
+</script>

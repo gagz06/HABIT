@@ -1,0 +1,39 @@
+#content {
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+    padding-top: 50px;
+}
+
+#updateHabitStatusForm {
+    background-color: blueviolet;
+    padding-left: 35%;
+}
+
+#updateHabitStatusForm label {
+    font-size: x-large;
+    color: white;
+}
+
+#updateHabitStatusForm input[type="time"],
+#updateHabitStatusForm input[type="date"],
+#updateHabitStatusForm select {
+    width: 200px;
+    font-size: large;
+}
+
+#habitStatus {
+    width: 200px;
+    font-size: medium;
+}
+
+#btnUpdateStatus {
+    font-size: large;
+    background-color: greenyellow;
+}
+#calendarLink{
+    font-size: large;
+    background-color: greenyellow;
+    color: black;
+    border: solid;
+}

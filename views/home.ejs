@@ -7,27 +7,35 @@
             <h2>
                 List Of All Habits
             </h2>
+            <div id="redirectIcon">
+                <a href="addHabit">Add New</a>
+            </div>
             <div id="habitListDiv">
                 <ul id="habitList">
-                    <% for(habit of allHabitList){%>
-                    <li>
-                        <div id="liContainerDiv">
-                            <label><a href="calendar"><%=habit.habitName%></a></label>
-                            <label><%=habit.time%></a></label>
-                            <label>Best Streak: <%= bestStreaks[allHabitList.indexOf(habit)] %> 
-                            /  <%= totalDays[allHabitList.indexOf(habit)]%> days </label>
-                            
-                            <a href="deleteHabit/<%=habit.id%>">Delete</a>
-                            <a href="status/<%=habit.id%>">Update Status</a>
-                        </div>
-                    </p>
-                    </li>
-                    <%} %>
+                    <%if(allHabitList.length>0 ){%>
+                        <% for(habit of allHabitList){%>
+                            <li>
+                                <div id="liContainerDiv">
+                                    <label><a href="calendar"><%=habit.habitName%></a></label>
+                                    <label><%=habit.time%></a></label>
+                                    <label>Best Streak: <%= bestStreaks[allHabitList.indexOf(habit)] %> 
+                                    /  <%= totalDays[allHabitList.indexOf(habit)]%> days </label>
+                                    <div id="linkdiv">
+                                        <a href="deleteHabit/<%=habit.id%>">Delete Habit</a>
+                                        <a href="status/<%=habit.id%>">Update Status</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <%} %>
+                    <%}else {%>
+                        <li>
+                            <div id="liContainerDiv">
+                                <label>No Habit added</label>
+                            </div>
+                        </li>
+                        <%}%>
                 </ul>
             </div>
-        </div>
-        <div id="redirectIcon">
-            <a href="addHabit">+</a>
         </div>
         <%- include('footer'); %>
     </div>

@@ -9,16 +9,59 @@
 
 /* Style for individual calendar day */
 .calendar-day {
-    border: 1px solid #ccc;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
 }
 
 /* Style for ticks and crosses */
 .tick {
-    color: green;
+    color: yellowgreen;
 }
 
+.blank{
+    color: white;
+}
 .cross {
     color: red;
+}
+.user-habits label{
+ width: 150px;   
+ font-size: larger;
+ padding-left: 20px;
+ text-align: center;
+padding-top: 30px;
+
+}
+#habits-div{
+    padding: 0 10px 10px 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+h1{
+    text-align: center;
+}
+.calendar-entry{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 1;
+}
+.user-habits{
+    display: flex;
+    border: solid;
+}
+body{
+    background-color: blueviolet;
+    color: white;
+    font-size: large;
+}
+body a{
+    color: yellow;
+    font-size: large;
+}
+.calendar-entry p span{
+border: solid;
+}
+#emptyListMessage{
+    font-size: xx-large;
 }

@@ -4,7 +4,7 @@
     <div id="loginWrapper">
         <%- include('header'); %>
             <div id="content">
-                <form action="/createnewhabit" id="addNewHabitForm" method="POST">
+                <form action="/createnewhabit" id="addNewHabitForm" method="POST" onsubmit="showAlert()">
                     <table>
 
                         <tr>
@@ -39,14 +39,31 @@
                             </td>
                             <td>
                                 <p>
-                                    <input type="time" id="inputDateTime" name="time" value="00:00">
+                                    <input type="time" id="inputDateTime" name="time" value="<%=todayTime%>">
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                <label>Status:</label>
+                            </td>
+                            <td>
                                 <p>
-                                    <input type="submit" id="btnLogin" value="Add New Task">
+                                    <select name="HabitStatus" id="habitStatus">
+                                        <option value="Done">Done</option>
+                                        <option value="Not Done">Not Done</option>
+                                        <option value="None" selected="true">None</option>
+                                    </select>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                <p>
+                                    <input type="submit" id="btnLogin" value="Add Habit">
                                 </p>
                             </td>
                         </tr>
@@ -58,3 +75,8 @@
     </div>
 </body>
 <script src="../../js/script.js"></script>   
+<script>
+    function showAlert() {
+        alert("Habit added successfully!");
+    }
+</script>

@@ -3,13 +3,16 @@ var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
 var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
-
+var minutes = today.getMinutes().toString().padStart(2, "0");
+var hours = today.getHours().toString().padStart(2, "0");
+var time = hours + ":" + minutes;
 today = yyyy + "-" + mm + "-" + dd;
 module.exports.addNewHabit = function (req, res) {
   try {
     return res.render("addHabit", {
       title: "Habit Tracker System | HTS",
-      todayDate: today
+      todayDate: today,
+      todayTime: time
     });
   } catch (err) {
     console.log(err);
@@ -27,6 +30,7 @@ module.exports.create = async function (req, res) {
    
     const newStatusEntry = {
       date: today,
+      status: req.body.HabitStatus
     };
 
     newHabit.statusEntries.push(newStatusEntry);

@@ -5,51 +5,62 @@ function findStatusEntryByDate(habit, date) {
 }
 %>
 
+<!-- Include an external stylesheet for styling -->
 <link rel="stylesheet" href="/css/calendarStyle.css">
 <body>
+    <!-- Include the header -->
     <%- include('header'); %>
     <h1>Habit Calendar</h1>
     
     <div id="habits-div">
 
-        <%if(habits.length>0){%>
+        <!-- Check if there are any habits to display -->
+        <% if (habits.length > 0) { %>
             <% for (let habit of habits) { %>
                 <div class="user-habits">
                     <label><%= habit.habitName %></label>
+                    <!-- Loop through the past 7 days -->
                     <% for (let j = 0; j < 7; j++) { %>
                         <div class="calendar-entry" >
+                            <!-- Calculate the current date -->
                             <% const currentDate = new Date(); currentDate.setDate(currentDate.getDate() - j); %>
+                            <!-- Format the date as 'YYYY-MM-DD' -->
                             <% const formattedDate = currentDate.toISOString().split('T')[0]; %>
+                            <!-- Get the formatted day name (e.g., Monday) -->
                             <% const formattedDay = currentDate.toLocaleDateString('en-US', { weekday: 'long' }); %>
-                            <p><a href="statusUpdate/<%=habit.id%>/<%= formattedDate %>"><%= formattedDate %></a></p>
+                            <!-- Display a link for updating status -->
+                            <p><a href="statusUpdate/<%= habit.id %>/<%= formattedDate %>"><%= formattedDate %></a></p>
                             
+                            <!-- Display the day of the week -->
                             <p><%= formattedDay %></p>
                             
-                            
+                            <!-- Find the status entry for this date within the habit -->
                             <% const statusEntry = findStatusEntryByDate(habit, formattedDate); %>
+                            <!-- Display status based on the found entry -->
                             <% if (statusEntry) { %>
-                                <% if(statusEntry.status === 'Done') { %>   
-                                   <p> <span class="tick">&#10004;</span></p>
+                                <% if (statusEntry.status === 'Done') { %>   
+                                    <p> <span class="tick">&#10004;</span></p>
                                 <% } else if (statusEntry.status === 'Not Done') { %>
                                     <p><span class="cross">&#10008;</span></p>
-                                    <% } else if (statusEntry.status === 'None') { %>
-                                        <p><span class="blank">&#63;</span></p>
-                                    <% } %>
-                            
-                            <%}else {%>
+                                <% } else if (statusEntry.status === 'None') { %>
+                                    <p><span class="blank">&#63;</span></p>
+                                <% } %>
+                            <% } else { %>
+                                <!-- If no entry is found, display a blank status -->
                                 <p><span class="blank">&#63;</span></p>
-                                <%}%>
+                            <% } %>
                         </div>
                     <% } %>
                 </div>
             <% } %>
-            <%}else{%>
-                <div class="calendar-entry" >
-                    <label id="emptyListMessage">No habits added</label>
-                </div>
-                <%}%>
+        <% } else { %>
+            <!-- Display a message if there are no habits added -->
+            <div class="calendar-entry" >
+                <label id="emptyListMessage">No habits added</label>
+            </div>
+        <% } %>
     </div>
     
+    <!-- Include the footer -->
     <%- include('footer'); %>   
 </body>
-

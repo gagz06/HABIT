@@ -1,10 +1,17 @@
+<!-- Include an external stylesheet for styling -->
 <link rel="stylesheet" href="/css/updateStatus.css">
+
+<!-- Start of the HTML body -->
 <body>
+    <!-- Wrapper for the entire page -->
     <div id="loginWrapper">
+        <!-- Include the header using an external template -->
         <%- include('header'); %>
         <div id="content">
+            <!-- Form for updating habit status -->
             <form action="/habitStatusUpdate/<%=habit.id%>" id="updateHabitStatusForm" method="POST" onsubmit="showAlert()">
                 <table>
+                    <!-- Habit Name -->
                     <tr>
                         <td>
                             <label for="habitName">Habit:</label>
@@ -13,6 +20,7 @@
                             <label><%=habit.habitName%></label>
                         </td>
                     </tr>
+                    <!-- Habit Time -->
                     <tr>
                         <td>
                             <label for="habitTime">Time:</label>
@@ -21,6 +29,7 @@
                             <input type="time" id="habitTime" name="time" value="<%=habit.time%>">
                         </td>
                     </tr>
+                    <!-- Habit Date -->
                     <tr>
                         <td>
                             <label for="inputDate">Date:</label>
@@ -29,6 +38,7 @@
                             <input type="date" id="inputDate" name="date" value="<%=todayDate%>">
                         </td>
                     </tr>
+                    <!-- Habit Status -->
                     <tr>
                         <td>
                             <label for="habitStatus">Status:</label>
@@ -41,21 +51,26 @@
                             </select>
                         </td>
                     </tr>
+                    <!-- Submit Button and Back Link -->
                     <tr>
                         <td></td>
                         <td>
                             <input type="submit" id="btnUpdateStatus" value="Update Status">
-                            <a href="../../calendar" id="calendarLink">Back</a>
+                            <a href="../../calendar" id="calendarLink">Calendar</a>
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
+        <!-- Include the footer using an external template -->
         <%- include('footer'); %>
     </div>
 </body>
 
+<!-- Include an external JavaScript file for interactive functionality -->
 <script src="../../../js/script.js"></script>
+
+<!-- JavaScript function to show an alert when the form is submitted -->
 <script>
     function showAlert() {
         alert("Status updated successfully!");

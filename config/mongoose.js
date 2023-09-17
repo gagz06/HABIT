@@ -1,11 +1,19 @@
+// Import the Mongoose library for MongoDB interaction
 const mongoose = require('mongoose');
+
+// Connect to the MongoDB database using the specified URL ('mongodb://0.0.0.0/habit_Trackker_App')
 mongoose.connect('mongodb://0.0.0.0/habit_Trackker_App');
 
+// Get a reference to the database connection
 const db = mongoose.connection;
 
-db.on('error',console.error.bind(console,"Error connecting to db"));
+// Event handler for database connection errors
+db.on('error', console.error.bind(console, "Error connecting to db"));
 
-db.once('open',function () {
-    console.log('Conected to DB=> MongoDB');
+// Event handler for successful database connection
+db.once('open', function () {
+    console.log('Connected to DB => MongoDB');
 });
-module.exports=db;
+
+// Export the Mongoose connection for use in other parts of the application
+module.exports = db;

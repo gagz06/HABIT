@@ -17,3 +17,6 @@ function closeNav() {
     document.body.style.backgroundColor = "white";
   }
 
+  function showAlert() {
+    alert("Habit added successfully!");
+}

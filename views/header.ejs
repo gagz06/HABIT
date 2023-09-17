@@ -1,19 +1,33 @@
+<!-- Include an external stylesheet for header styling -->
 <link rel="stylesheet" href="/css/headerStyle.css">
+
+<!-- Header section with an ID of "header" for styling purposes -->
 <div id="header">
+    <!-- Sidebar for navigation -->
     <div id="sidebar">
+        <!-- Side navigation menu -->
         <div id="mySidenav" class="sidenav">
+            <!-- Button to close the sidebar -->
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <!-- Links to different sections or pages -->
             <a href="/calendar">Calendar</a>
-            <a href="/addHabit"> Add New </a>
+            <a href="/addNewHabitPage">Add New</a>
         </div>
+        <!-- Main content area -->
         <div id="main">
+            <!-- Button to open the sidebar -->
             <span onclick="openNav()">&#9776; Menu</span>
         </div>
     </div>
+    <!-- Application title -->
     <div id="appTitle">
+        <!-- Title text within a strong tag for emphasizing -->
         <strong>
+           <!-- Link to the home page, with the title dynamically inserted -->
            <a href="/">  <%= title %></a>
         </strong>
     </div>
 </div>
+
+<!-- Include an external JavaScript file for interactive functionality -->
 <script src="js/script.js"></script>

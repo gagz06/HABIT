@@ -1,43 +1,63 @@
+<!-- Include an external stylesheet for home page styling -->
 <link rel="stylesheet" href="/css/homeStyle.css">
+
+<!-- Start of the HTML body -->
 <body>
+    <!-- Wrapper for the entire page -->
     <div id="wrapper">
+        <!-- Include the header using an external template -->
         <%- include('header'); %>
+        <!-- Main content container -->
         <div id="content">
-            <!-- Main content here -->
-            <h2>
-                List Of All Habits
-            </h2>
+            <!-- Main content heading -->
+            <h2>List Of All Habits</h2>
+            <!-- Link for adding a new habit -->
             <div id="redirectIcon">
-                <a href="addHabit">Add New</a>
+                <a href="addNewHabitPage">Add New</a>
             </div>
+            <!-- Container for displaying the list of habits -->
             <div id="habitListDiv">
+                <!-- Unordered list for the habit items -->
                 <ul id="habitList">
-                    <%if(allHabitList.length>0 ){%>
-                        <% for(habit of allHabitList){%>
+                    <!-- Check if there are any habits to display -->
+                    <% if (allHabitList.length > 0) { %>
+                        <% for (habit of allHabitList) { %>
+                            <!-- List item for each habit -->
                             <li>
+                                <!-- Container for the habit details -->
                                 <div id="liContainerDiv">
-                                    <label><a href="calendar"><%=habit.habitName%></a></label>
-                                    <label><%=habit.time%></a></label>
+                                    <!-- Link to the habit's calendar page -->
+                                    <label><a href="calendar"><%= habit.habitName %></a></label>
+                                    <!-- Display the habit's time -->
+                                    <label><%= habit.time %></label>
+                                    <!-- Display the best streak and total days -->
                                     <label>Best Streak: <%= bestStreaks[allHabitList.indexOf(habit)] %> 
-                                    /  <%= totalDays[allHabitList.indexOf(habit)]%> days </label>
+                                    /  <%= totalDays[allHabitList.indexOf(habit)] %> days </label>
+                                    <!-- Container for action links -->
                                     <div id="linkdiv">
-                                        <a href="deleteHabit/<%=habit.id%>">Delete Habit</a>
-                                        <a href="status/<%=habit.id%>">Update Status</a>
+                                        <!-- Link to delete the habit -->
+                                        <a href="deleteHabit/<%= habit.id %>">Delete Habit</a>
+                                        <!-- Link to update the habit's status -->
+                                        <a href="status/<%= habit.id %>">Update Status</a>
                                     </div>
                                 </div>
                             </li>
-                            <%} %>
-                    <%}else {%>
+                        <% } %>
+                    <% } else { %>
+                        <!-- Display a message if no habits are added -->
                         <li>
                             <div id="liContainerDiv">
                                 <label>No Habit added</label>
                             </div>
                         </li>
-                        <%}%>
+                    <% } %>
                 </ul>
             </div>
         </div>
+        <!-- Include the footer using an external template -->
         <%- include('footer'); %>
     </div>
 </body>
+
+<!-- Include an external JavaScript file for interactive functionality -->
 <script src="js/script.js"></script>

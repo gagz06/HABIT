@@ -1,9 +1,10 @@
+require("dotenv").config();
 // Import the Mongoose library for MongoDB interaction
 const mongoose = require('mongoose');
 
 // Connect to the MongoDB database using the specified URL ('mongodb://0.0.0.0/habit_Trackker_App')
 //mongoose.connect('mongodb://0.0.0.0/habit_Trackker_App');
-mongoose.connect('mongodb+srv://gagan:aRxfn9ktMN6grig8@habitwebsite.fajuenb.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGODB_CONNECT_URI);
 // Get a reference to the database connection
 const db = mongoose.connection;
 
